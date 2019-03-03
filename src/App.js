@@ -9,7 +9,7 @@ import HomeContainer from "./components/home/HomeContainer";
 import TestPage from "./components/pages/TestPage";
 
 import "./App.css";
-import { Provider } from "./components/context";
+import { Provider } from "./statehandlers/context";
 
 class App extends Component {
   render() {

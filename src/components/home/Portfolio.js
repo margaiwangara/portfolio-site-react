@@ -31,7 +31,6 @@ class Portfolio extends Component {
 
   requestHandler() {
     const { count } = this.state;
-    console.log(count);
     axios
       .get(`/api/portfolio?count=${count}`)
       .then(resp => this.setState({ repos: resp.data }))
@@ -58,7 +57,7 @@ class Portfolio extends Component {
             <div className="work">{reposList}</div>
             <span>
               <a
-                href="#"
+                href="#loadmore"
                 className="btn btn-primary"
                 onClick={this.clickHandler}
               >

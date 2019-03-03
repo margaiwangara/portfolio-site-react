@@ -425,8 +425,10 @@ body {
   width: 100%;
   min-height: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  overflow-y: auto;
 }
 
 .contact > .contact-form {
@@ -493,6 +495,13 @@ body {
   font-size: 0.85rem;
 }
 
+.contact > .contact-form > form > .right > button {
+
+  height: 16.5%;
+  
+}
+
+
 /*  Footer */
 footer {
   max-width: 100%;
@@ -513,6 +522,7 @@ footer {
   text-align: center;
   letter-spacing: 0.05rem;
   font-weight: 500;
+  cursor: pointer;
 }
 
 .btn-primary {
