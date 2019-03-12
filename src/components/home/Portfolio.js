@@ -6,48 +6,46 @@ class Portfolio extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      repos: [],
-      count: 6,
-      frequency: 6
+      repos: []
     };
-
-    this.clickHandler = this.clickHandler.bind(this);
-    this.requestHandler = this.requestHandler.bind(this);
   }
 
   componentDidMount() {
     this.requestHandler();
   }
 
-  clickHandler(e) {
+  clickHandler = e => {
     e.preventDefault();
 
-    const { count, frequency } = this.state;
+    this.setState(
+      prevState => ({
+        count: prevState.frequency + prevState.count
+      }),
+      this.requestHandler
+    );
+  };
 
-    this.setState({ count: count + frequency });
-
-    this.requestHandler();
-  }
-
-  requestHandler() {
-    const { count } = this.state;
+  requestHandler = () => {
     axios
-      .get(`/api/portfolio?count=${count}`)
+      .get(`/api/repos`)
       .then(resp => this.setState({ repos: resp.data }))
       .catch(error => console.log(error));
-  }
+  };
 
   render() {
     const { repos } = this.state;
-    const reposList = repos.map(repo => (
-      <PortfolioList
-        key={repo.id}
-        title={repo.name}
-        description={repo.description}
-        language={repo.language}
-        url={repo.html_url}
-      />
-    ));
+    const reposList = repos.map(
+      (repo, key) =>
+        key < 6 && (
+          <PortfolioList
+            key={repo.id}
+            title={repo.name}
+            description={repo.description}
+            language={repo.language}
+            url={repo.html_url}
+          />
+        )
+    );
     return (
       <div className="portfolio">
         <div className="portfolio-inner">
@@ -55,7 +53,7 @@ class Portfolio extends Component {
           <h3>portfolİo</h3>
           <div className="works">
             <div className="work">{reposList}</div>
-            <span>
+            {/* <span>
               <a
                 href="#loadmore"
                 className="btn btn-primary"
@@ -63,7 +61,7 @@ class Portfolio extends Component {
               >
                 Load More...
               </a>
-            </span>
+            </span> */}
           </div>
         </div>
       </div>

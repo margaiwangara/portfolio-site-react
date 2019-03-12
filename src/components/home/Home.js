@@ -17,15 +17,15 @@ const Home = props => {
             dolorum praesentium vitae facere adipisci, illo ea.
           </p>
           <span>
-            <a href="#" className="btn btn-secondary">
+            {/* <a href="#" className="btn btn-secondary">
               view resume
-            </a>
+            </a> */}
           </span>
         </div>
       </div>
       <div className="left">
         <a href="#" className="navbar-brand">
-          <span>margaİ</span>
+          <span />
         </a>
         <div className="center">
           <h6>hello,</h6>

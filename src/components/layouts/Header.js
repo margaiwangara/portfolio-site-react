@@ -1,13 +1,17 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Header = props => {
   return (
     <header>
-      <span>
+      <Link to="/" className="navbar-brand">
+        <span>m</span>
+      </Link>
+      {/* <span>
         <span />
         <span />
         <span />
-      </span>
+      </span> */}
       <nav>
         <ul className="navbar-nav">
           <li>
